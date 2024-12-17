@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz-App</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <h1>HTML QUIZ</h1>
+      <div class="cont">
+        <div class="quiz-stop" id="quiz">
+          <h2 id="h2"></h2>
+        </div>
+        <div class="quiz-body" id="hideDiv">
+          <div id="question"></div>
+          <div id="options">
+          </div>
+          <!-- <div class="q-box">
+            <h3>1. What is HTML?</h3>
+            <div class="ans-box">
+              <div class="ans">
+                <input type="radio" name="answers" id="lang" class="answers" />
+                <label for="lang">Language</label>
+              </div>
+              <div class="ans">
+                <input type="radio" name="answers" id="tag" class="answers" />
+                <label for="tag">Tag</label>
+              </div>
+              <div class="ans">
+                <input type="radio" name="answers" id="atr" class="answers" />
+                <label for="atr">Attribute</label>
+              </div>
+              <div class="ans">
+                <input type="radio" name="answers" id="class" class="answers" />
+                <label for="class">Class</label>
+              </div>
+            </div>
+          </div> -->
+        </div>
+        <div class="time-div" id="hideDiv2">
+          <div class="timer">
+            <div class="timemachine">
+              <div class="countdown-el mins-c">
+                <p class="big-text" id="mins"></p>
+              </div>
+              <span>:</span>
+              <div class="countdown-el seconds-c">
+                <p class="big-text" id="seconds"></p>
+              </div>
+            </div>
+            <div class="btns">
+              <button onClick="startCount()" id="start" class="btn-s">
+                Start
+              </button>
+              <button onClick="stopCount()" class="hide btn-s" id="stop">
+                Stop
+              </button>
+              <button onclick="showResult()" class="hide btn-s" id="submit">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+    <script src="./timer.js"></script>
+  </body>
+</html>
