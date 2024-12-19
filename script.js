@@ -160,7 +160,6 @@ function selectAnswer(e) {
     showResult();
   }
 }
-
 function showResult() {
   let hideDiv = document.getElementById("hideDiv");
   let hideDiv2 = document.getElementById("hideDiv2");
@@ -168,29 +167,53 @@ function showResult() {
   hideDiv2.style.display = "none";
   let quiz = document.getElementById("quiz");
   quiz.style.display = "block";
+  var plName = document.getElementById('playerName');
+  
+  // Calculate percentage
+  let percentage = (score / quizData.length) * 100;
+
+  // Calculate grade
+  let grade = '';
+  if (percentage >= 90) {
+    grade = 'A';
+  } else if (percentage >= 80) {
+    grade = 'B';
+  } else if (percentage >= 70) {
+    grade = 'C';
+  } else if (percentage >= 60) {
+    grade = 'D';
+  } else {
+    grade = 'F';
+  }
+
+  // Display the result
   quiz.innerHTML = `
       <h2>Quiz Completed!</h2>
-      <p>Your score: ${score}/${quizData.length}</p>
+      <p>${plName.innerText} score: ${score}/${quizData.length}</p>
+      <p>Percentage: ${percentage.toFixed(2)}%</p>
+      <p>Grade: ${grade}</p>
       <p id="heading3"></p>
     `;
+
+  // Set feedback based on score
   let elm = document.getElementById("heading3");
   if (score <= 5) {
     elm.innerText = "Sorry :( You have to Learn Again";
   }
   if (score <= 10 && score > 5) {
-    elm.innerText = "not bad, But i know you can do it";
+    elm.innerText = "Not bad, but I know you can do better!";
   }
   if (score <= 15 && score > 10) {
-    elm.innerText = "Well, You're Passed";
+    elm.innerText = "Well, You're Passed!";
   }
   if (score <= 20 && score > 15) {
     elm.innerText = "Great, keep it up!";
   }
   if (score <= 25 && score > 20) {
-    elm.innerText = "Sounds good, you can make it more better";
+    elm.innerText = "Sounds good, you can make it even better!";
   }
   if (score <= 30 && score > 25) {
-    elm.innerText = "Congrats :) , You've won the quiz";
+    elm.innerText = "Congrats :) , You've won the quiz!";
   }
 }
 

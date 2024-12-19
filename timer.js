@@ -1,7 +1,7 @@
-var minsLeft = 29;
+var minsLeft = 14;
 var secsLeft = 59;
 let miNs = document.getElementById("mins");
-miNs.innerText = 30;
+miNs.innerText = 15;
 let seCs = document.getElementById("seconds");
 seCs.innerText = "00";
 
@@ -23,6 +23,17 @@ function countdown() {
 }
 
 function startCount() {
+  var nameInp = document.getElementById('name'); 
+  nameInp.setAttribute("style", "display: none;");
+  var studentName = nameInp.value;
+  console.log("Welcome " +studentName); 
+  var playerElm = document.getElementById('playerName');
+  playerElm.innerText= studentName;
+ document.getElementById('spanWelcome').setAttribute("style", "display: block;"); 
+
+ document.getElementsByClassName('timemachine')[0].setAttribute("style", "display: flex;");
+
+  
   var timerid = setInterval(countdown, 1000);
   let btn = document.getElementById("stop");
   let btnhide = document.getElementById("start")
@@ -32,6 +43,7 @@ function startCount() {
   hideDiv.style.display = "none";
   btn.style.display = "block"
   btnhide.style.display = "none"
+
 }
 
 function stopCount() {
@@ -46,5 +58,8 @@ function stopCount() {
   let h2 = document.getElementById("h2");
   h2.innerText = "Click submit button to see your score"
   showDiv.style.display = "none";
+
   hideDiv.style.display = "none";
+
+  console.log(studentName + "Game Fininsh")
 }
