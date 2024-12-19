@@ -1,6 +1,7 @@
 const quizData = [
   {
     question: "1. What does HTML stand for?",
+    id: 1,
     options: [
       "Hyper text markup language",
       "Hyperlinks and text markup language",
@@ -10,21 +11,25 @@ const quizData = [
   },
   {
     question: "2. Who is making the Web standards?",
+    id: 2,
     options: ["Mozilla", "Google", "Microsoft"],
     answer: "Google",
   },
   {
     question: "3. Choose the correct HTML element for the largest heading:",
+    id: 3,
     options: ["<heading>", "<h1>", "<h6>"],
     answer: "<h1>",
   },
   {
     question: "4. What is the correct HTML element for inserting a line break?",
+    id: 4,
     options: ["<blr>", "<break>", "<br>"],
     answer: "<br>",
   },
   {
     question: "5. What is the correct HTML for adding a background color?",
+    id: 5,
     options: [
       "<body bg='yellow'>",
       "<background>yellow</background>",
@@ -34,16 +39,19 @@ const quizData = [
   },
   {
     question: "6. Choose the correct HTML element to define important text",
+    id: 6,
     options: ["<strong>", "<important>", "<bold>"],
     answer: "<strong>",
   },
   {
     question: "7. Choose the correct HTML element to define emphasized text",
+    id: 7,
     options: ["<i>", "<em>", "<italic>"],
     answer: "<em>",
   },
   {
     question: "8. What is the correct HTML for creating a hyperlink?",
+    id: 8,
     options: [
       "<a>www.google.com</a>",
       "<a link='www.google.com'>",
@@ -53,11 +61,13 @@ const quizData = [
   },
   {
     question: "9. Which character is used to indicate an end tag?",
+    id: 9,
     options: ["/", "<", "!"],
     answer: "/",
   },
   {
     question: "10. How can you open a link in a new tab/browser window?",
+    id: 10,
     options: [
       "<a href='url' target='new'>",
       "<a href='url' target='_blank'>",
@@ -67,41 +77,49 @@ const quizData = [
   },
   {
     question: "11. What tag is used to define a hyperlink in HTML?",
+    id: 11,
     options: ["<a>", "<link>", "<href>"],
     answer: "<a>",
   },
   {
     question: "12. why do we use br tag?",
+    id: 12,
     options: ["Start a new paragraph", "Create a list", " for break line"],
     answer: "for break line",
   },
   {
     question: "13. How do you add an image to a webpage?",
+    id: 13,
     options: ["<img src='url'>", "<src='url'>", "<media src='url'>"],
     answer: "<img src='url'>",
   },
   {
     question: "14. Which HTML tag is used to define a table cell?",
+    id: 14,
     options: ["<table>", "<td>", "<tr>"],
     answer: "<td>",
   },
   {
     question: "15.What does the <ul> tag represent?",
+    id: 15,
     options: ["Ordered list", "Unordered list", "Universal list"],
     answer: "Unordered list",
   },
   {
     question: "16. Choose the correct HTML element for the largest heading:",
+    id: 16,
     options: ["<heading>", "<h1>", "<h6>"],
     answer: "<h1>",
   },
   {
     question: "17. Who is making the Web standards?",
+    id: 17,
     options: ["Mozilla", "Google", "Microsoft"],
     answer: "Google",
   },
   {
     question: "18. What is the correct HTML for creating a hyperlink?",
+    id: 18,
     options: [
       "<a>www.google.com</a>",
       "<a link='www.google.com'>",
@@ -111,11 +129,13 @@ const quizData = [
   },
   {
     question: "19. why do we use br tag?",
+    id: 19,
     options: ["Start a new paragraph", "Create a list", " for break line"],
     answer: "for break line",
   },
   {
     question: "20. Which character is used to indicate an end tag?",
+    id: 20,
     options: ["/", "<", "!"],
     answer: "/",
   },
@@ -132,6 +152,14 @@ function showQuestion() {
   for (let i = 0; i < quizData.length; i++) {
     const question = quizData[currentQuestion];
     questionElement.innerText = question.question;
+    let hideBtn = document.getElementById("botn");
+    let showBtn = document.getElementById("botm");
+    if (question.id > 1) {
+      hideBtn.style.display = "block";
+    }
+    if (question.id < 20) {
+      showBtn.style.display = "block";
+    }
 
     optionsElement.innerHTML = "";
     question.options.forEach((option) => {
@@ -160,6 +188,17 @@ function selectAnswer(e) {
     showResult();
   }
 }
+
+function showPreviousQuestion() {
+  currentQuestion--;
+  showQuestion();
+}
+
+function showNextQuestion() {
+  currentQuestion++;
+  showQuestion();
+}
+
 function showResult() {
   let hideDiv = document.getElementById("hideDiv");
   let hideDiv2 = document.getElementById("hideDiv2");
@@ -167,23 +206,23 @@ function showResult() {
   hideDiv2.style.display = "none";
   let quiz = document.getElementById("quiz");
   quiz.style.display = "block";
-  var plName = document.getElementById('playerName');
-  
+  var plName = document.getElementById("playerName");
+
   // Calculate percentage
   let percentage = (score / quizData.length) * 100;
 
   // Calculate grade
-  let grade = '';
+  let grade = "";
   if (percentage >= 90) {
-    grade = 'A';
+    grade = "A";
   } else if (percentage >= 80) {
-    grade = 'B';
+    grade = "B";
   } else if (percentage >= 70) {
-    grade = 'C';
+    grade = "C";
   } else if (percentage >= 60) {
-    grade = 'D';
+    grade = "D";
   } else {
-    grade = 'F';
+    grade = "F";
   }
 
   // Display the result

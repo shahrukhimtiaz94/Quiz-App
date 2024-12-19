@@ -171,12 +171,13 @@ span#spanWelcome {
     background-color: white;
 
 }
+#botn{display: none;}
+#botm{display: none;}
 
 .two-btns
 {
     width: 80%;
-    /* display: flex; */
-    display: none;
+    display: flex;
     justify-content: space-between;
 }
 
