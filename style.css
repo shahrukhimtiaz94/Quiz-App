@@ -7,6 +7,22 @@
   color: white;
 }
 
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2c2727; 
+}
+
 .userinfo{
     display: none ;
     width: 100%;
@@ -95,6 +111,42 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+}
+
+.absolute{
+  height: 100%;
+  position: absolute;
+  right: 0;
+  display: none;
+  justify-content: flex-end;
+  align-items: center;
+  overflow: hidden;
+}
+
+.all-questions{
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  overflow-y: scroll;
+  gap: 15px;
+  width: 150px;
+}
+
+.button-s
+{
+  color: white;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+  padding: 5px 2px 5px 2px;
+  cursor: pointer;
+}
+
+.button-s:hover{
+  background-color: white;
+  color: black;
+  font-weight: bold;
 }
 
 .quiz-stop {
@@ -208,10 +260,10 @@ span#spanWelcome {
 .buttons {
   width: 500px;
   border: none;
-  background-color: rgba(124, 124, 124, 0.647);
+  background-color: rgba(124, 124, 124, 0.716);
   color: white !important;
   padding: 15px 25px;
-  font-size: 20px;
+  font-size: 22px;
   cursor: pointer;
   margin-top: 10px;
   margin-left: 5px;
@@ -227,7 +279,7 @@ span#spanWelcome {
   border: 2px solid white;
   font-size: 25px;
   backdrop-filter: blur(2px);
-  background-color: rgba(0, 0, 0, 0.223);
+  background-color: rgba(0, 0, 0, 0.436);
 }
 
 #options {

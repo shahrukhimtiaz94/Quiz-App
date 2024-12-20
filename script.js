@@ -173,7 +173,7 @@ const submitButton = document.getElementById("submit");
 let currentQuestion = 0;
 let score = 0;
 
-function showQuestion() {
+function showQuestion(e) {
   for (let i = 0; i < quizData.length; i++) {
     const question = quizData[currentQuestion];
     questionElement.innerText = question.question;
@@ -282,3 +282,24 @@ function showResult() {
 }
 
 showQuestion();
+
+let all_questions = () => {
+  let quesDiv = document.getElementById("alb");
+  for (let i = 0; i < quizData.length; i++){
+    let ques = quizData[i].id;
+    let questionDiv = document.createElement("button");
+    console.log(ques)
+    if (ques < 10) {
+      questionDiv.innerText = `Question - ${"0" + ques}`;
+    }
+    if (ques > 9) {
+      questionDiv.innerText = `Question - ${ques}`;
+    }
+
+    questionDiv.setAttribute("class", "button-s")
+    quesDiv.appendChild(questionDiv)
+    showQuestion(quizData[i].id)
+  }
+}
+
+all_questions();

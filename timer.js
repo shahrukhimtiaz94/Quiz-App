@@ -11,11 +11,18 @@ function countdown() {
     minsLeft = "00"
     secsLeft = "00"
   }
-    if (secsLeft == -1) {
+    if (secsLeft == 0+"0") {
       secsLeft = 59;
         minsLeft--
     }
-
+  if (minsLeft < 10)
+  {
+    miNs.innerText = "0" + minsLeft;
+  }
+  if (secsLeft < 10) {
+    seCs.innerText = "0" + secsLeft;
+    secsLeft--;
+  }
   else {
     seCs.innerText = secsLeft;
     secsLeft--;
@@ -29,6 +36,8 @@ function startCount() {
   let container = document.getElementById("cont");
   let headinghide = document.getElementById("heading-hide");
   let show_div = document.getElementById("showdiv-heading");
+  let quesTdiv = document.getElementById("alc");
+  quesTdiv.style.display = "flex"
   show_div.style.display = "flex";
   headinghide.style.display = "none"
   container.style.flexDirection = "column"
