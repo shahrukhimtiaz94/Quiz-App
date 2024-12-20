@@ -23,27 +23,35 @@ function countdown() {
 }
 
 function startCount() {
-  var nameInp = document.getElementById('name'); 
+  let nameInp = document.getElementById('inpName'); 
+  let hide_div = document.getElementById("hide-div");
+  let timerDiv = document.getElementById("hideDiv2");
+  let container = document.getElementById("cont");
+  let headinghide = document.getElementById("heading-hide");
+  let show_div = document.getElementById("showdiv-heading");
+  show_div.style.display = "flex";
+  headinghide.style.display = "none"
+  container.style.flexDirection = "column"
+  timerDiv.style.border = "none";
+  timerDiv.style.boxShadow = "none";
+  timerDiv.style.backdropFilter = "none";
+  timerDiv.style.background = "transparent"
+  hide_div.style.display = "none"
   nameInp.setAttribute("style", "display: none;");
-  var studentName = nameInp.value;
-  console.log("Welcome " +studentName); 
-  var playerElm = document.getElementById('playerName');
-  playerElm.innerText= studentName;
- document.getElementById('spanWelcome').setAttribute("style", "display: block;"); 
+  let studentName = nameInp.value;
+  let userInfo = document.getElementById("user-info");
+  userInfo.style.display = "none" 
 
  document.getElementsByClassName('timemachine')[0].setAttribute("style", "display: flex;");
 
   
   var timerid = setInterval(countdown, 1000);
-  let btn = document.getElementById("stop");
   let btnhide = document.getElementById("start")
   let showDiv = document.getElementsByClassName("quiz-body")[0];
   let hideDiv = document.getElementsByClassName("quiz-stop")[0];
   showDiv.style.display = "flex";
   hideDiv.style.display = "none";
-  btn.style.display = "block"
   btnhide.style.display = "none"
-
 }
 
 function stopCount() {

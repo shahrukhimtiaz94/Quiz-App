@@ -8,18 +8,15 @@
   </head>
   <body>
     <div class="main">
-      <h1>HTML QUIZ</h1>
-      <div class="cont">
+      <h1 id="heading-hide">HTML QUIZ</h1>
+      <div class="cont" id="cont">
         <div class="quiz-stop" id="quiz">
           <h2 id="h2"></h2>
         </div>
         <div class="time-div" id="hideDiv2">
           <div class="timer">
-            <div class="userinfo">
-
-              <span id="spanWelcome">Welcome: </span>
-              <h4 id="playerName"> Student Information:</h4>
-
+            <div class="userinfo" id="showdiv-heading">
+              <h1 id="head-1">HTML QUIZ</h1>
             </div>
             <div class="timemachine">
               <div class="countdown-el mins-c">
@@ -30,33 +27,74 @@
                 <p class="big-text" id="seconds"></p>
               </div>
             </div>
-            <input type="text" name="name" id="name" placeholder="Enter Your Name: ">
-            <div class="btns">
-              <button onClick="startCount(event)" id="start" class="btn-s">
-                Start
-              </button>
-              <button onClick="stopCount()" class="hide btn-s" id="stop">
-                Stop
-              </button>
-              <button onclick="showResult()" class="hide btn-s" id="submit">
-                Submit
-              </button>
+            <div class="user-info" id="user-info">
+              <h2 id="stn">STUDENT INFORMATION</h2>
+              <div class="input-fields">
+                <div class="inp-box">
+                  <label for="inpName">Full Name :</label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="inpName"
+                    class="inpField"
+                    placeholder="Enter Your Name"
+                  />
+                  <span class="error"></span>
+                </div>
+                <div class="inp-box">
+                  <label for="inpRoll">Roll Number :</label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="inpRoll"
+                    class="inpField"
+                    placeholder="Enter your roll number"
+                  />
+                  <span class="error"></span>
+                </div>
+                <div class="inp-box">
+                  <label for="inpName">Email Address :</label>
+                  <input
+                    type="email"
+                    name="name"
+                    id="inpEmail"
+                    class="inpField"
+                    placeholder="Enter your email"
+                  />
+                  <span class="error"></span>
+                </div>
+              </div>
+              <div class="btns">
+                <button onClick="startCount()" id="start" class="btn-s">
+                  Start
+                </button>
+              </div>
             </div>
           </div>
         </div>
+        <div class="text-div" id="hide-div">
+          <p>
+            This quiz consists of 30 questions, covering a range of topics. You
+            have 15 minutes to complete the entire quiz, so make sure to manage
+            your time wisely. Read each question carefully and answer to the
+            best of your ability. Once the time is up, the quiz will
+            automatically end, and your results will be displayed. Best of luck!
+          </p>
+        </div>
         <div class="quiz-body" id="hideDiv">
           <div id="question"></div>
-          <div id="options">
-          </div>
+          <div id="options"></div>
           <div class="two-btns">
-            <button onClick="showPreviousQuestion()" class="btn-s" id="botn">Back</button>
-            <button onClick="showNextQuestion()" class="btn-s" id="botm">Next</button>
+            <button onClick="showPreviousQuestion()" class="btn-s" id="botn" style="align-self: flex-start;">
+              Back
+            </button>
+            <button onClick="showNextQuestion()" class="btn-s" id="botm" style="align-self: flex-end;">
+              Next
+            </button>
           </div>
         </div>
       </div>
-      <p style="margin: 0px 70px;">This quiz consists of 30 questions, covering a range of topics. You have 15 minutes to complete the entire quiz, so make sure to manage your time wisely. Read each question carefully and answer to the best of your ability. Once the time is up, the quiz will automatically end, and your results will be displayed. Best of luck!</p>
     </div>
-
     <script src="./script.js"></script>
     <script src="./timer.js"></script>
   </body>

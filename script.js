@@ -6,25 +6,26 @@ const quizData = [
       "Hyper text markup language",
       "Hyperlinks and text markup language",
       "Home tool markup language",
+      "Other",
     ],
     answer: "Hyper text markup language",
   },
   {
     question: "2. Who is making the Web standards?",
     id: 2,
-    options: ["Mozilla", "Google", "Microsoft"],
+    options: ["Mozilla", "Google", "Microsoft", "None of them"],
     answer: "Google",
   },
   {
     question: "3. Choose the correct HTML element for the largest heading:",
     id: 3,
-    options: ["<heading>", "<h1>", "<h6>"],
+    options: ["<heading>", "<h1>", "<h6>", "None of them"],
     answer: "<h1>",
   },
   {
     question: "4. What is the correct HTML element for inserting a line break?",
     id: 4,
-    options: ["<blr>", "<break>", "<br>"],
+    options: ["<blr>", "<break>", "<br>", "None of them"],
     answer: "<br>",
   },
   {
@@ -34,19 +35,20 @@ const quizData = [
       "<body bg='yellow'>",
       "<background>yellow</background>",
       "<body style='background-color: red'>",
+      "None of them",
     ],
     answer: "<body style='background-color: red'>",
   },
   {
     question: "6. Choose the correct HTML element to define important text",
     id: 6,
-    options: ["<strong>", "<important>", "<bold>"],
+    options: ["<strong>", "<important>", "<bold>", "None of them"],
     answer: "<strong>",
   },
   {
     question: "7. Choose the correct HTML element to define emphasized text",
     id: 7,
-    options: ["<i>", "<em>", "<italic>"],
+    options: ["<i>", "<em>", "<italic>", "None of them"],
     answer: "<em>",
   },
   {
@@ -56,13 +58,14 @@ const quizData = [
       "<a>www.google.com</a>",
       "<a link='www.google.com'>",
       "<a href='www.google.com'></a>",
+      "None of them",
     ],
     answer: "<a href='www.google.com'></a>",
   },
   {
     question: "9. Which character is used to indicate an end tag?",
     id: 9,
-    options: ["/", "<", "!"],
+    options: ["/", "<", "!", "None of them"],
     answer: "/",
   },
   {
@@ -72,49 +75,65 @@ const quizData = [
       "<a href='url' target='new'>",
       "<a href='url' target='_blank'>",
       "<a newTab='url'>",
+      "None of them",
     ],
     answer: "<a href='url' target='_blank'>",
   },
   {
     question: "11. What tag is used to define a hyperlink in HTML?",
     id: 11,
-    options: ["<a>", "<link>", "<href>"],
+    options: ["<a>", "<link>", "<href>", "None of them"],
     answer: "<a>",
   },
   {
     question: "12. why do we use br tag?",
     id: 12,
-    options: ["Start a new paragraph", "Create a list", " for break line"],
+    options: [
+      "Start a new paragraph",
+      "Create a list",
+      " for break line",
+      "None of them",
+    ],
     answer: "for break line",
   },
   {
     question: "13. How do you add an image to a webpage?",
     id: 13,
-    options: ["<img src='url'>", "<src='url'>", "<media src='url'>"],
+    options: [
+      "<img src='url'>",
+      "<src='url'>",
+      "<media src='url'>",
+      "None of them",
+    ],
     answer: "<img src='url'>",
   },
   {
     question: "14. Which HTML tag is used to define a table cell?",
     id: 14,
-    options: ["<table>", "<td>", "<tr>"],
+    options: ["<table>", "<td>", "<tr>", "None of them"],
     answer: "<td>",
   },
   {
     question: "15.What does the <ul> tag represent?",
     id: 15,
-    options: ["Ordered list", "Unordered list", "Universal list"],
+    options: [
+      "Ordered list",
+      "Unordered list",
+      "Universal list",
+      "None of them",
+    ],
     answer: "Unordered list",
   },
   {
     question: "16. Choose the correct HTML element for the largest heading:",
     id: 16,
-    options: ["<heading>", "<h1>", "<h6>"],
+    options: ["<heading>", "<h1>", "<h6>", "None of them"],
     answer: "<h1>",
   },
   {
     question: "17. Who is making the Web standards?",
     id: 17,
-    options: ["Mozilla", "Google", "Microsoft"],
+    options: ["Mozilla", "Google", "Microsoft", "None of them"],
     answer: "Google",
   },
   {
@@ -124,19 +143,25 @@ const quizData = [
       "<a>www.google.com</a>",
       "<a link='www.google.com'>",
       "<a href='www.google.com'></a>",
+      "None of them",
     ],
     answer: "<a href='www.google.com'></a>",
   },
   {
     question: "19. why do we use br tag?",
     id: 19,
-    options: ["Start a new paragraph", "Create a list", " for break line"],
+    options: [
+      "Start a new paragraph",
+      "Create a list",
+      " for break line",
+      "None of them",
+    ],
     answer: "for break line",
   },
   {
     question: "20. Which character is used to indicate an end tag?",
     id: 20,
-    options: ["/", "<", "!"],
+    options: ["/", "<", "!", "None of them"],
     answer: "/",
   },
 ];
@@ -206,7 +231,7 @@ function showResult() {
   hideDiv2.style.display = "none";
   let quiz = document.getElementById("quiz");
   quiz.style.display = "block";
-  var plName = document.getElementById("playerName");
+  var plName = document.getElementById("inpName");
 
   // Calculate percentage
   let percentage = (score / quizData.length) * 100;
