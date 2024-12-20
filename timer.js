@@ -71,10 +71,9 @@ let emailValid = (e) => {
   }
 };
 
-function startCount() {
+function startCount(e) {
+  e.preventDefault()
   var nameInp = document.getElementById("inpName");
-  var emailInp = document.getElementById("inpEmail");
-  var rollInp = document.getElementById("inpRoll");
   let hide_div = document.getElementById("hide-div");
   let timerDiv = document.getElementById("hideDiv2");
   let container = document.getElementById("cont");
