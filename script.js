@@ -173,29 +173,70 @@ const submitButton = document.getElementById("submit");
 let currentQuestion = 0;
 let score = 0;
 
-function showQuestion(e) {
-  for (let i = 0; i < quizData.length; i++) {
-    const question = quizData[currentQuestion];
-    questionElement.innerText = question.question;
-    let hideBtn = document.getElementById("botn");
-    let showBtn = document.getElementById("botm");
-    if (question.id > 1) {
-      hideBtn.style.display = "block";
-    }
-    if (question.id < 20) {
-      showBtn.style.display = "block";
-    }
+// function showQuestion() {
+//   const question = quizData[currentQuestion];
+//   questionElement.innerText = question.question;
+//   optionsElement.innerHTML = ""; // Clear previous options
+//   let hideBtn = document.getElementById("botn");
+//   let showBtn = document.getElementById("botm");
+//   if (question.id > 1) {
+//     hideBtn.style.display = "block";
+//   }
+//   if (question.id < 20) {
+//     showBtn.style.display = "block";
+//   }
+//   question.options.forEach((option) => {
+//     const button = document.createElement("button");
+//     button.innerText = option;
+//     optionsElement.appendChild(button);
+//     button.addEventListener("click", selectAnswer); // Attach event to select the answer
+//     button.setAttribute("class", "buttons");
+//   });
+// }
+function showQuestion() {
+  const question = quizData[currentQuestion];
 
-    optionsElement.innerHTML = "";
-    question.options.forEach((option) => {
-      const button = document.createElement("button");
-      button.innerText = option;
-      optionsElement.appendChild(button);
-      button.addEventListener("click", selectAnswer);
-      button.setAttribute("class", "buttons");
+  // Display the question text
+  questionElement.innerText = question.question;
+
+  // Clear previous options
+  optionsElement.innerHTML = "";
+
+  // Generate options for the current question
+  question.options.forEach((option) => {
+    const button = document.createElement("button");
+    button.innerText = option;
+    button.setAttribute("class", "buttons");
+
+    // Add click event to highlight the selected button
+    button.addEventListener("click", (e) => {
+      // Clear background of all buttons first
+      const allButtons = optionsElement.querySelectorAll("button");
+      allButtons.forEach((btn) => (btn.style.backgroundColor = ""));
+
+      // Set background color for the selected button
+      e.target.style.backgroundColor = "lightblue";
+
+      // Check the selected answer
+      selectAnswer(e);
     });
+
+    optionsElement.appendChild(button);
+  });
+
+  // Handle navigation buttons
+  const prevBtn = document.getElementById("botn");
+  const nextBtn = document.getElementById("botm");
+
+  if (prevBtn) {
+    prevBtn.style.display = currentQuestion > 0 ? "block" : "none";
+  }
+  if (nextBtn) {
+    nextBtn.style.display = currentQuestion < quizData.length - 1 ? "block" : "none";
   }
 }
+
+
 
 function selectAnswer(e) {
   const selectedButton = e.target;
@@ -213,22 +254,31 @@ function selectAnswer(e) {
     showResult();
   }
 }
-
 function showPreviousQuestion() {
-  currentQuestion--;
-  showQuestion();
+  if (currentQuestion > 0) {
+      currentQuestion--;
+      showQuestion();
+  }
 }
 
 function showNextQuestion() {
-  currentQuestion++;
-  showQuestion();
+  if (currentQuestion < quizData.length - 1) {
+      currentQuestion++;
+      showQuestion();
+  }
 }
 
 function showResult() {
   let hideDiv = document.getElementById("hideDiv");
   let hideDiv2 = document.getElementById("hideDiv2");
+  let hidepagination = document.getElementById("alc");
+  let cont = document.getElementById("cont");
+
   hideDiv.style.display = "none";
   hideDiv2.style.display = "none";
+  hidepagination.style.display = "none";
+  cont.style.justifyContent = "center";
+
   let quiz = document.getElementById("quiz");
   quiz.style.display = "block";
   var plName = document.getElementById("inpName");
@@ -282,24 +332,36 @@ function showResult() {
 }
 
 showQuestion();
-
 let all_questions = () => {
   let quesDiv = document.getElementById("alb");
-  for (let i = 0; i < quizData.length; i++){
+  quesDiv.innerHTML = ""; // Clear any existing buttons to avoid duplicates
+
+  for (let i = 0; i < quizData.length; i++) {
     let ques = quizData[i].id;
+
+    // Create a button for each question
     let questionDiv = document.createElement("button");
-    console.log(ques)
+    questionDiv.setAttribute("class", "button-s");
+
+    // Set the button text based on question number
     if (ques < 10) {
-      questionDiv.innerText = `Question - ${"0" + ques}`;
-    }
-    if (ques > 9) {
+      questionDiv.innerText = `Question - 0${ques}`;
+    } else {
       questionDiv.innerText = `Question - ${ques}`;
     }
 
-    questionDiv.setAttribute("class", "button-s")
-    quesDiv.appendChild(questionDiv)
-    showQuestion(quizData[i].id)
-  }
-}
+    // Add an event listener to display the selected question on click
+    questionDiv.addEventListener("click", () => {
+      currentQuestion = i; // Set the current question index
+      showQuestion(); // Show the corresponding question
+    });
 
+    // Append the button to the container
+    quesDiv.appendChild(questionDiv);
+  }
+};
+
+// Call the function to create the buttons
 all_questions();
+
+
